@@ -37,10 +37,10 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-[100vh] text-white">
+    <div className="flex justify-center items-center h-[100vh]">
       <div className="text-center">
       <img className="w-24 mx-auto" src={Logo} alt="logo" />
-        <h2 className="font-bold text-3xl mt-4">Signup</h2>
+        <h2 className="font-bold text-3xl mt-4 text-white">Signup</h2>
         <form onSubmit={handleSignup} className="mt-4 space-y-4">
           <div className="flex flex-col">
             <input
@@ -71,14 +71,14 @@ const Signup = () => {
           </div>
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 w-full px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 w-full px-4 rounded text-white"
           >
             Sign Up
           </button>
         </form>
         {error && <p className="text-red-500">Error: {error}</p>}
         {message && <p>{message}</p>}
-        <p className="mt-4">
+        <p className="mt-4 text-white">
           Already have an account? <Link className="text-blue-500" to="/">Login</Link>
         </p>
       </div>

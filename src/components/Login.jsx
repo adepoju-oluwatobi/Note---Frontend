@@ -36,10 +36,10 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-[100vh] text-white">
+    <div className="flex justify-center items-center h-[100vh]">
       <div className="text-center">
         <img className="w-24 mx-auto" src={Logo} alt="logo" />
-        <h2 className="font-bold text-5xl mt-4">Login</h2>
+        <h2 className="font-bold text-5xl mt-4 text-white">Login</h2>
         <form
           className="mt-8 space-y-4"
           onSubmit={(e) => {
@@ -72,7 +72,7 @@ const Login = () => {
           >
             Login
           </button>
-          <p>
+          <p className="text-white">
             Don't have an account? <Link className="text-blue-500" to="/signup">Sign Up</Link>
           </p>
         </form>
