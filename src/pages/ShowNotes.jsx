@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/header";
+import Header from "../components/Header";
 import Search from "../components/Search";
 import Edit from '../assets/edit.svg'
 import Delete from '../assets/delete.svg'
