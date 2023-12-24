@@ -32,7 +32,7 @@ const ShowNotes = () => {
 
     const fetchNotes = async () => {
       try {
-        const response = await fetch("http://localhost:5000/user/dashboard", {
+        const response = await fetch("https://note-plus.onrender.com/user/dashboard", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
