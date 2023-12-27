@@ -1,6 +1,7 @@
 import React from 'react'
 import Menu from '../assets/menu.svg'
 import NewNote from '../assets/edit.svg'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
@@ -12,7 +13,9 @@ function Header() {
         <p className='text-white'>All Notes</p>
     </div>
     <div>
+      <Link to="/add_notes">
         <img className='w-6' src={NewNote} alt="" />
+      </Link>
     </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/edit.svg";
+import config from "../server";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -10,7 +11,7 @@ const Login = () => {
 
   const handleSuccessfulLogin = async () => {
     try {
-      const response = await fetch("https://note-plus.onrender.com/user/login", {
+      const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,6 +48,7 @@ const Login = () => {
             handleSuccessfulLogin();
           }}
         >
+          {error && <div className="text-red-500">{error}</div>}
           <div className="flex flex-col">
             <input
               type="text"
@@ -65,7 +67,6 @@ const Login = () => {
               className="border border-gray-300 rounded px-2 py-1"
             />
           </div>
-          {error && <div className="text-red-500">{error}</div>}
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold w-full py-2 px-4 rounded"

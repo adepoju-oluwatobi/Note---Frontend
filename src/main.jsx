@@ -9,6 +9,7 @@ import App from "./App";
 import AddNote from "./pages/AddNotes";
 import ShowNotes from "./pages/ShowNotes";
 import Signup from "./pages/SignUp";
+import EditNote from "./pages/EditNote";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />
+  },
+  {
+    path: "/edit_note/:noteId",
+    element: <EditNote />
   }
 ]);
 

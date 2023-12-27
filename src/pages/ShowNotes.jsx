@@ -3,6 +3,10 @@ import Header from "../components/Header";
 import Search from "../components/Search";
 import Edit from '../assets/edit.svg'
 import Delete from '../assets/delete.svg'
+import config from "../server"; 
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ShowNotes = () => {
   const [notes, setNotes] = useState([]);
@@ -10,6 +14,7 @@ const ShowNotes = () => {
   const [userId, setUserId] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate;
 
   useEffect(() => {
     const fetchUserId = () => {
@@ -32,7 +37,7 @@ const ShowNotes = () => {
 
     const fetchNotes = async () => {
       try {
-        const response = await fetch("https://note-plus.onrender.com/user/dashboard", {
+        const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/dashboard`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -71,9 +76,31 @@ const ShowNotes = () => {
 
   const displayNotes = searchTerm === "" ? notes : searchResults;
 
+
+  const handleDeleteNote = async (noteId) => {
+    try {
+      const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/notes/delete/${noteId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        toast.success("Note deleted successfully")
+        location.reload()
+      } else {
+        // Handle deletion failure
+        console.error('Failed to delete note');
+      }
+    } catch (error) {
+      console.error('Error deleting note:', error);
+    }
+  };
   return (
     <div>
       <Header />
+      <ToastContainer />
       <Search onSearch={handleSearch} />
       {error ? (
         <p>Error: {error}</p>
@@ -87,8 +114,12 @@ const ShowNotes = () => {
               <p className="font-thin text-sm">{note.content}</p>
               </div>
               <div className="flex items-center gap-4">
+              <Link to={`/edit_note/${note.id}`} className="text-white">
                 <img className="w-6" src={Edit} alt="" />
-                <img className="w-6" src={Delete} alt="" />
+                </Link>
+                <Link to="#" className="text-white" onClick={() => handleDeleteNote(note.id)}>
+                  <img className="w-6" src={Delete} alt="" />
+                </Link>
                 </div>
             </div>
           ))}
