@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import config from "../server";
 import AddHeader from "../components/AddHeader";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +14,7 @@ const AddNote = () => {
     try {
       const user_id = localStorage.getItem("user_id"); // Retrieve user_id from local storage
 
-      const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/notes/add`, {
+      const response = await fetch(`https://note-plus.onrender.com/user/notes/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import Search from "../components/Search";
 import Edit from '../assets/edit.svg'
 import Delete from '../assets/delete.svg'
-import config from "../server"; 
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,7 +13,6 @@ const ShowNotes = () => {
   const [userId, setUserId] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const navigate = useNavigate;
 
   useEffect(() => {
     const fetchUserId = () => {
@@ -37,7 +35,7 @@ const ShowNotes = () => {
 
     const fetchNotes = async () => {
       try {
-        const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/dashboard`, {
+        const response = await fetch(`https://note-plus.onrender.com/user/dashboard`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -79,7 +77,7 @@ const ShowNotes = () => {
 
   const handleDeleteNote = async (noteId) => {
     try {
-      const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/notes/delete/${noteId}`, {
+      const response = await fetch(`https://note-plus.onrender.com/user/notes/delete/${noteId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

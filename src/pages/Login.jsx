@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/edit.svg";
-import config from "../server";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +10,7 @@ const Login = () => {
 
   const handleSuccessfulLogin = async () => {
     try {
-      const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/login`, {
+      const response = await fetch(`https://note-plus.onrender.com/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

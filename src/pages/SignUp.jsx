@@ -15,7 +15,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/signup`, {
+      const response = await fetch(`https://note-plus.onrender.com/user/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

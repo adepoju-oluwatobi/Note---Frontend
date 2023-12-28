@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import EditHeader from "../components/EditHeader";
-import config from "../server";
 
 const EditNote = () => {
   const { noteId } = useParams();
@@ -19,7 +18,7 @@ const EditNote = () => {
   useEffect(() => {
     const fetchNote = async () => {
       try {
-        const response = await fetch(`${config.REACT_APP_API_ENDPOINT}/user/notes/edit/${noteId}`);
+        const response = await fetch(`https://note-plus.onrender.com/user/notes/edit/${noteId}`);
         if (response.ok) {
           const data = await response.json();
           setTitle(data.title || '');
@@ -55,7 +54,7 @@ const EditNote = () => {
         user_id: userId,
       };
       const response = await fetch(
-        `${REACT_APP_API_ENDPOINT}/user/notes/edit/${noteId}`,
+        `https://note-plus.onrender.com/user/notes/edit/${noteId}`,
         {
           method: "PUT",
           headers: {
