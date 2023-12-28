@@ -1,24 +1,6 @@
 {
-    "routes":[
-        {
-            "src": "/",
-            "dest": "/"
-        },
-        {
-            "src": "/add_notes",
-            "dest": "/"
-        },
-        {
-            "src": "/notes",
-            "dest": "/"
-        },
-        {
-            "src": "/signup",
-            "dest": "/"
-        },
-        {
-            "src": "/edit_note/:noteId",
-            "dest": "/"
-        }
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/(.*)", "dest": "/" }
     ]
-}
+  }
