@@ -101,7 +101,7 @@ const ShowNotes = () => {
       <ToastContainer />
       <Search onSearch={handleSearch} />
       {error ? (
-        <p>Error: {error}</p>
+        <p className="text-white">Error: {error}</p>
       ) : displayNotes.length > 0 ? (
         <div>
           {displayNotes.map((note) => (
@@ -123,7 +123,7 @@ const ShowNotes = () => {
           ))}
         </div>
       ) : (
-        <p>No matching notes found</p>
+        <p className="text-white p-4">No matching notes found</p>
       )}
     </div>
   );

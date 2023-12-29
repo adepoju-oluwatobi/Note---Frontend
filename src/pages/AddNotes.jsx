@@ -60,14 +60,14 @@ const AddNote = () => {
         <div>
           <textarea
             className="bg-[#1d2327] p-2 focus:outline-none text-white"
-            style={{ width: "280px", height: "70vh" }}
+            style={{ width: "280px", height: "60vh" }}
             placeholder="Content goes here..."
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
           ></textarea>
         </div>
-        <button className="p-2 bg-blue-500 rounded-lg" type="submit">Add Note</button>
+        <button className="p-2 bg-blue-500 rounded-lg text-white" type="submit">Add Note</button>
       </form>
     </div>
   );
